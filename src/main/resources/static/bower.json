@@ -1,0 +1,20 @@
+{
+  "name": "MiNuS",
+  "homepage": "https://github.com/for3v3rInFriendZone/MiNuS",
+  "authors": [
+    "for3v3rInFriendZone <strile93@gmail.com>",
+    "DejanUrosevic <dejansuca@gmail.com>"
+  ],
+  "description": "Making logs on money spending",
+  "main": "bower",
+  "keywords": [
+    "money",
+    "spending",
+    "list"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-ui-router": "^0.4.2"
+  }
+}

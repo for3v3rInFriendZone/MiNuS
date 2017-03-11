@@ -43,9 +43,19 @@
 				url: '/login',
 				views: {
 					'content@': {
-						templateUrl: 'app/components/core/login.core.html'
+						resolve: {
+							users: getUsers
+						},
+						templateUrl: 'app/components/user/login.user.html',
+						controller: "LoginController",
+						controllerAs: "lgc"
 					}
 				}
 			});
+		
+		getUsers.$inject = ['Restangular'];
+		function getUsers(Restangular) {
+			return Restangular.all('user').getList();
+		}
 	}
 })();

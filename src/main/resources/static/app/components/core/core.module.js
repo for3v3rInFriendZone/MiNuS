@@ -2,5 +2,5 @@
 	"use strict";
 	
 	angular
-		.module('minus.core', ['ui.router']);
+		.module('minus.core', ['ui.router', 'restangular', 'LocalStorageModule']);
 })();

@@ -34,6 +34,10 @@ public class User {
 	private String password;
 
 	@NotNull
+	@Column(name = "EMAIL")
+	private String email;
+
+	@NotNull
 	@Column(name = "TYPE")
 	private String type;
 
@@ -44,12 +48,14 @@ public class User {
 
 	}
 
-	public User(String firstname, String lastname, String username, String password, String type, String image) {
+	public User(String firstname, String lastname, String username, String password, String email, String type,
+			String image) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
 		this.password = password;
+		this.email = email;
 		this.type = type;
 		this.image = image;
 	}
@@ -104,6 +110,14 @@ public class User {
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

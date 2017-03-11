@@ -44,6 +44,10 @@ img{ max-width:100%;}
 
 a, a:hover, a:active{ outline:0px !important}
 
+p a:hover {
+	 color: #fff;
+}
+
 @font-face {
   font-family: 'FontAwesome';
   src: url('../fonts/fontawesome-webfont.eot?v=4.1.0');
@@ -211,8 +215,11 @@ color: #fff;
 }
 
 .main-nav li a:hover{
-	text-decoration:none;
 	text-decoration: underline;
+}
+.main-nav li a.active {
+  text-decoration: underline;
+  outline: none;
 }
 
 .small-logo{

@@ -14,7 +14,9 @@
 				abstract: true,
 				views: {
 					'header': {
-						templateUrl: 'app/components/core/header.core.html'
+						templateUrl: 'app/components/core/header.core.html',
+						controller: "NavbarController",
+						controllerAs: "nbc"
 					},
 					'footer': {
 						templateUrl: 'app/components/core/footer.core.html'
@@ -34,6 +36,14 @@
 				views: {
 					'content@': {
 						templateUrl: 'app/components/core/about.html'
+					}
+				}
+			})
+			.state('main.login', {
+				url: '/login',
+				views: {
+					'content@': {
+						templateUrl: 'app/components/core/login.core.html'
 					}
 				}
 			});

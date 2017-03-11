@@ -2,5 +2,5 @@
 	"use strict";
 	
 	angular
-		.module('minus', ['minus.core']);
+		.module('minus.core', ['ui.router']);
 })();

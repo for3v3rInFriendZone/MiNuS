@@ -1,149 +1,120 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, maximum-scale=1">
-
-<title>Homepage | MiNuS - Spend your money, but see everything.</title>
-<link rel="icon" href="favicon.png" type="image/png">
-<link rel="shortcut icon" href="favicon.ico" type="img/x-icon">
-
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
-
-<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="assets/css/style.css" rel="stylesheet" type="text/css">
-<link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
-<link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
-<link href="assets/css/animate.css" rel="stylesheet" type="text/css">
-
-<script src="assets/js/angular/angular.js"></script>
-<script src="assets/js/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="assets/js/lodash/lodash.js"></script>
-<script src="assets/js/restangular/src/restangular.js"></script>
-
-<script src="app/app.module.js"></script>
-
-</head>
-<body ng-app="minus">
-<div style="overflow:hidden;">
-<header class="header" id="header"><!--header-start-->
-	<div class="container">
-    	<figure class="logo animated fadeInDown delay-07s">
-        	<img src="assets/img/logo2.png" alt="">
-        </figure>
-        <h1 class="animated fadeInDown delay-07s">Welcome To <span style="color:blue;">M</span>i<span style="color: yellow;">N</span>u<span style="color: green;"><i class="fa fa-usd" aria-hidden="true"></i></span></h1>
-        <ul class="we-create animated fadeInUp delay-1s">
-        	<li>We are making logs on what you spent your money.</li>
-        </ul>
-            <i class="animated fadeInUp delay-1s fa fa-chevron-down" aria-hidden="true"> Swipe down to start</i> <i class="animated fadeInUp delay-1s fa fa-chevron-down" aria-hidden="true"></i>
-    </div>
-</div>
-</header><!--header-end-->
-
-
-<nav class="main-nav-outer" id="test"><!--main-nav-start-->
-	<div class="container">
-        <ul class="main-nav">
-        	<li><a href="#header">Home</a></li>
-            <li><a href="#service">Service</a></li>
-            <li class="small-logo"><a href="#header"><img src="assets/img/small-logo.png" alt=""></a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-    </div>
-</nav><!--main-nav-end-->
-
-
-
-<section class="main-section" id="service"><!--main-section-start-->
-	<div class="container">
-    	<h2>Service</h2>
-    	<h6>We offer a simple service to see how much money you have spent over time.</h6>
-			<h6>Click to start</h6>
-        <div class="row">
-            <figure class="col-lg-4 col-lg-offset-4 wow fadeInUp delay-02s">
-            	<img src="assets/img/shoppingList.png" class="img-responsive img-circle"/>
-            </figure>
-
-        </div>
-				<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, maximum-scale=1">
+	
+	<title>Homepage | MiNuS - Spend your money, but not too much.</title>
+	<link rel="icon" href="favicon.png" type="image/png">
+	<link rel="shortcut icon" href="favicon.ico" type="img/x-icon">
+	
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
+	
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/animate.css" rel="stylesheet" type="text/css">
+	
+	
+	</head>
+	
+	<body ng-app="minus">
+	
+	<div class="container-fluid">
+			<div class="row" ui-view="header"> </div>
+			<div class="row" ui-view="content"> </div>
+			<div class="row" ui-view="footer"> </div>
 	</div>
-</section><!--main-section-end-->
-<hr class="style-one" />
-
-<section class="main-section team" id="team"><!--main-section team-start-->
+	
+	<script src="assets/js/angular/angular.js"></script>
+	<script src="assets/js/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="assets/js/lodash/lodash.js"></script>
+	<script src="assets/js/restangular/src/restangular.js"></script>
+	
+	<script src="app/app.module.js"></script>
+	
+	<script src="app/components/core/core.module.js"></script>
+	<script src="app/components/core/core.route.js"></script>
+	<!-- <section class="main-section" id="service">main-section-start
+		<div class="container animated fadeInDown delay-07s">
+	    	<h2>Service</h2>
+	    	<h6>We offer a simple service to see how much money you have spent over time.</h6>
+				<h6>Click to start</h6>
+	        <div class="row">
+	            <figure class="col-lg-4 col-lg-offset-4 wow fadeInUp delay-02s">
+	            	<a href="#header"><img src="assets/img/shoppingList.png" class="img-responsive img-circle"/> </a>
+	            </figure>
+	        </div>
+					<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+		</div>
+	</section>main-section-end
+	
+	<section class="main-section team" id="team">main-section team-start
+		<div class="container">
+	        <h2>team</h2>
+	        <h6>Take a closer look into our amazing team. We might be small, but we are mean.</h6>
+	        <div class="team-leader-block clearfix">
+	            <div class="team-leader-box col-sm-offset-2">
+	                <div class="team-leader wow fadeInDown delay-03s">
+	                    <img src="assets/img/suca.png" alt="">
+	                </div>
+	                <h3 class="wow fadeInDown delay-03s">Dejan Urošević</h3>
+	                <span class="wow fadeInDown delay-03s">Developer and Product Owner</span>
+						<ul class="social-link">
+							<li class="facebook"><a href="https://www.facebook.com/dejan.urosevic.79?fref=ts"> <i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
+		                    <li class="pinterest"><a href="https://github.com/DejanUrosevic"><i class="fa fa-github"></i></a></li>
+		                    <li class="gplus"><a href="mailto:dejansuca@gmail.com" ><i class="fa fa-envelope"></i></a></li>
+		                </ul>
+	            </div>
+	            <div class="team-leader-box">
+	                <div class="team-leader  wow fadeInDown delay-06s">
+	                    <img src="assets/img/marko.png" alt="">
+	                </div>
+	                <h3 class="wow fadeInDown delay-06s">Marko Striško</h3>
+	                <span class="wow fadeInDown delay-06s">Developer and Product Owner</span>
+						<ul class="social-link">
+							<li class="facebook"><a href="https://www.facebook.com/marko.strisko.7"> <i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
+		                    <li class="pinterest"><a href="https://github.com/for3v3rInFriendZone"><i class="fa fa-github"></i></a></li>
+		                    <li class="gplus"><a href="mailto:strile93@gmail.com" ><i class="fa fa-envelope"></i></a></li>
+		                </ul>
+	            </div>
+	        </div>
+	    </div>
+	</section>main-section team-end
+	
+	<section class="business-talking">business-talking-start
+		<div class="container">
+	        <h2>Let’s Talk Business.</h2>
+	    </div>
+	</section>business-talking-end
+	
 	<div class="container">
-        <h2>team</h2>
-        <h6>Take a closer look into our amazing team. We might be small, but we are mean.</h6>
-        <div class="team-leader-block clearfix">
-            <div class="team-leader-box col-sm-offset-2">
-                <div class="team-leader wow fadeInDown delay-03s">
-                    <img src="assets/img/suca.png" alt="">
-                </div>
-                <h3 class="wow fadeInDown delay-03s">Dejan Urošević</h3>
-                <span class="wow fadeInDown delay-03s">Developer and Product Owner</span>
-								<div class="col-sm-offset-1">
-									<ul class="social-link">
-										  <li class="facebook"><a href="https://www.facebook.com/dejan.urosevic.79?fref=ts"> <i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
-	                    <li class="pinterest"><a href="https://github.com/DejanUrosevic"><i class="fa fa-github"></i></a></li>
+	<section class="main-section contact" id="contact">
+	
+	        <div class="row">
+	        	<div class="col-lg-6 col-sm-7 wow fadeInLeft">
+	                <div class="contact-info-box email clearfix">
+	                	<h3><i class="fa-pencil"></i>email:</h3>
+	                	<span>MiNuSGroup2017@gmail.com</span>
+	                </div>
+	                <ul class="social-link">
+	                    <li class="facebook"><a href="https://github.com/for3v3rInFriendZone/MiNuS"><i class="fa fa-github"></i></a></li>
 	                </ul>
-							</div>
-            </div>
-            <div class="team-leader-box">
-                <div class="team-leader  wow fadeInDown delay-06s">
-                    <img src="assets/img/marko.png" alt="">
-                </div>
-                <h3 class="wow fadeInDown delay-06s">Marko Striško</h3>
-                <span class="wow fadeInDown delay-06s">Developer and Product Owner</span>
-								<div class="col-sm-offset-1">
-									<ul class="social-link">
-										  <li class="facebook"><a href="https://www.facebook.com/marko.strisko.7"> <i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
-	                    <li class="pinterest"><a href="https://github.com/for3v3rInFriendZone"><i class="fa fa-github"></i></a></li>
-	                </ul>
-							</div>
-            </div>
-        </div>
-    </div>
-</section><!--main-section team-end-->
-
-<section class="business-talking"><!--business-talking-start-->
-	<div class="container">
-        <h2>Let’s Talk Business.</h2>
-    </div>
-</section><!--business-talking-end-->
-
-<div class="container">
-<section class="main-section contact" id="contact">
-
-        <div class="row">
-        	<div class="col-lg-6 col-sm-7 wow fadeInLeft">
-                <div class="contact-info-box email clearfix">
-                	<h3><i class="fa-pencil"></i>email:</h3>
-                	<span>MiNuSGroup2017@gmail.com</span>
-                </div>
-                <ul class="social-link">
-                    <li class="facebook"><a href="https://github.com/for3v3rInFriendZone/MiNuS"><i class="fa fa-github"></i></a></li>
-                </ul>
-            </div>
-        	<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
-            	<div class="form">
-                	<input class="input-text" type="text" name="" value="Your Name *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-                    <input class="input-text" type="text" name="" value="Your E-mail *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-                	<textarea class="input-text text-area" cols="0" rows="0" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
-                    <input class="input-btn" type="submit" value="send message">
-                </div>
-            </div>
-        </div>
-</section>
-</div>
-<footer class="footer">
-	<div class="container">
-        <div class="footer-logo"> <a href="#header"><img src="assets/img/logo2.png"/></a></div>
-        <span class="copyright">Copyright © 2017 | <a href="http://bootstraptaste.com/">Bootstrap Themes</a> by BootstrapTaste</span>
-    </div>
-</footer>
-
-</body>
+	            </div>
+	        	<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
+	            	<div class="form">
+	                	<input class="input-text" type="text" name="" value="Your Name *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+	                    <input class="input-text" type="text" name="" value="Your E-mail *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+	                	<textarea class="input-text text-area" cols="0" rows="0" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
+	                    <input class="input-btn" type="submit" value="send message">
+	                </div>
+	            </div>
+	        </div>
+	</section>
+	</div> -->
+	
+	
+	</body>
 </html>

@@ -98,7 +98,7 @@ p{
 
 .header{
 	text-align:center;
-	background:url(../img/back2.jpg) left top repeat;
+	background:url(../img/mainBack.jpg) left top repeat;
 	padding:280px 0;
 }
 .logo{
@@ -179,7 +179,7 @@ color: #fff;
 	border-bottom:1px solid #dddddd;
 	box-shadow:0 4px 5px -3px #ececec;
 	position:relative;
-	background:#fff;
+	background:url(../img/back1.jpg);
 }
 .main-nav{
 	text-align:center;
@@ -190,10 +190,16 @@ color: #fff;
 .main-nav li{
 	display:inline;
 	margin:0 1px;
+	color:#fff !important;
+	text-transform:uppercase;
+	font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
+	line-height:20px;
+	font-size: 16px;
 }
 .main-nav li a{
 	display:inline-block;
-	color:#222222;
+	color:#fff !important;
 	text-transform:uppercase;
 	font-family: 'Montserrat', sans-serif;
 	text-decoration: none;
@@ -206,7 +212,7 @@ color: #fff;
 
 .main-nav li a:hover{
 	text-decoration:none;
-	color: #7cc576;
+	text-decoration: underline;
 }
 
 .small-logo{
@@ -215,6 +221,7 @@ color: #fff;
 
 .main-section{
 	padding:90px 0 110px;
+	border-bottom: 1px solid #dddddd;
 }
 
 
@@ -485,6 +492,7 @@ border: 2px solid #fff;
 }
 .main-section.team{
 	padding:85px 0;
+	background:#fafafa;
 }
 .main-section.team h6{
 	margin-bottom:40px;
@@ -741,8 +749,9 @@ border: 2px solid #fff;
 ---------------------------------*/
 
 .footer{
-	background:url(../img/back2.jpg) left top repeat;
+    background:url(../img/footerBack.jpg);
 	padding:35px 0 35px;
+	border-top: 1px solid #dddddd;
 }
 .footer-logo{
 	margin:15px auto 35px;

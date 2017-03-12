@@ -51,11 +51,24 @@
 						controllerAs: "lgc"
 					}
 				}
+			})
+			.state('main.signup', {
+				url: '/signUp',
+				views: {
+					'content@': {
+						resolve: {
+							users: getUsers
+						},
+						templateUrl: 'app/components/user/user.signup.html',
+						controller: "LoginController",
+						controllerAs: "lgc"
+					}
+				}
 			});
 		
-		getUsers.$inject = ['Restangular'];
-		function getUsers(Restangular) {
-			return Restangular.all('user').getList();
+		getUsers.$inject = ['User'];
+		function getUsers(User) {
+			return User.findAll();
 		}
 	}
 })();

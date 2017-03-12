@@ -1,0 +1,35 @@
+<div style="overflow:hidden;">
+	<header class="header" id="header"><!--header-start-->
+		<div class="container">
+			<form class="state-form form-horizontal" name="lgc.form" ng-submit="lgc.submitSignUpForm()" novalidate>
+				<div class="login-box animated fadeInUp">
+					<div class="box-header">
+						<h2>Sign Up</h2>
+					</div>
+					<label for="firstname">First name</label>
+					<br/>
+					<input type="text" id="firstname" size="30" ng-model="lgc.user.firstname" required>
+					<br/>
+					<label for="lastname">Last name</label>
+					<br/>
+					<input type="text" id="lastname" size="30" ng-model="lgc.user.lastname" required>
+					<br/>
+					<label for="username">Username</label>
+					<br/>
+					<input type="text" id="username" size="30" ng-model="lgc.user.username" required>
+					<br/>
+					<label for="password">Password(6 or more characters)</label>
+					<br/>
+					<input type="text" id="password" size="30" ng-model="lgc.user.password" required>
+					<br/>
+					<label for="email">E-mail</label>
+					<br/>
+					<input type="text" id="email" size="30" ng-model="lgc.user.email" required>
+					<br/>
+					<button type="submit">I want to join now</button>
+					<br/>
+				</div>
+			</form>
+		</div>
+	</header>
+</div>

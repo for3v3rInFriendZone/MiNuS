@@ -39,5 +39,15 @@ public class UserController {
 		User user = userSer.findOne(id);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/login", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<Boolean> checkUserLogin(@RequestBody User user) {
 
+		User userDB = userSer.findByUsername(user.getUsername());
+		if(userDB.getPassword().equals(userSer.passwordEncrypt(user.getPassword()))) {
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+		
+	}
 }

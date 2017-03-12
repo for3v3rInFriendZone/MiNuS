@@ -26,7 +26,7 @@ public class User {
 	private String lastname;
 
 	@NotNull
-	@Column(name = "USERNAME")
+	@Column(name = "USERNAME", unique=true)
 	private String username;
 
 	@NotNull
@@ -37,7 +37,6 @@ public class User {
 	@Column(name = "EMAIL")
 	private String email;
 
-	@NotNull
 	@Column(name = "TYPE")
 	private String type;
 

@@ -59,4 +59,10 @@ public class UserServiceImpl implements UserService {
 		return passwordEncoder.encode(password);
 	}
 
+	@Override
+	public User findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return userRepo.findByUsername(username);
+	}
+
 }

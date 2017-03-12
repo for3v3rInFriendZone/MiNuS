@@ -14,6 +14,13 @@
 		lgc.submitSignUpForm = submitSignUpForm;
 		
 		function submitLoginForm() {
+			if(lgc.form.$invalid) {
+				return;
+			}
+			
+			User.login(lgc.user).then(function(data) {
+				var aaa = data;
+			})
 			
 		}
 		
@@ -21,7 +28,7 @@
 			if(lgc.form.$invalid) {
 				return;
 			}
-			lgc.user.type = "simple";
+			
 			User.save(lgc.user, "main.home");
 		}
 		

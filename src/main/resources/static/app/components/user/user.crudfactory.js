@@ -32,6 +32,11 @@
 			
 		}
 		
+		userService.login = function(user) {
+			return Restangular.all('user/login').post(user);
+		
+		}	
+		
 		return userService;
 	}
 })();

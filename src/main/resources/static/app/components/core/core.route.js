@@ -32,7 +32,7 @@
 				}
 			})
 			.state('main.about', {
-				url: '/about',
+				url: '/aboutUs',
 				views: {
 					'content@': {
 						templateUrl: 'app/components/core/about.html'

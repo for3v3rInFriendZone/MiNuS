@@ -9,23 +9,30 @@
 	function LoginController($state, localStorageService, users, User) {  
 		var lgc = this;
 		
+		lgc.checkLogin = false;
 		lgc.users = users;
 		lgc.submitLoginForm = submitLoginForm;
 		lgc.submitSignUpForm = submitSignUpForm;
 		
 		function submitLoginForm() {
 			if(lgc.form.$invalid) {
+				lgc.checkLogin = true;
 				return;
 			}
 			
 			User.login(lgc.user).then(function(data) {
-				var aaa = data;
+				if(data == true) {
+					$state.go("main.home");
+				} else {
+					lgc.checkLogin = true;
+					return;
+				}
 			})
-			
 		}
 		
 		function submitSignUpForm() {
 			if(lgc.form.$invalid) {
+				lgc.checkLogin = true;
 				return;
 			}
 			

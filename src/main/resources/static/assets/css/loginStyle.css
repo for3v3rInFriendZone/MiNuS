@@ -20,7 +20,7 @@ h1#title span span {
 	font-weight: 400;
 }
 
-h2 {
+h2.loginHeader{
 	text-transform: uppercase;
 	color: white;
 	font-weight: 400;
@@ -34,7 +34,7 @@ h2 {
 	max-width: 340px;
 	margin: 0 auto;
 	position: relative;
-	top: -100px;
+	top: -120px;
 	padding-bottom: 50px;
 	border-radius: 5px;
 	box-shadow: 0 5px 50px rgba(0,0,0,0.4);

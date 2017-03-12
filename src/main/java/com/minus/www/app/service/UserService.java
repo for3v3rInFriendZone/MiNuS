@@ -18,6 +18,8 @@ public interface UserService {
 	
 	public String passwordEncrypt(String password);
 	
+	public Boolean checkPassword(String rawPassword, String encodedPassword);
+	
 	public User findByUsername(String username);
 	
 }

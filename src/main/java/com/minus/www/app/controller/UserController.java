@@ -42,12 +42,15 @@ public class UserController {
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Boolean> checkUserLogin(@RequestBody User user) {
-
+		
+		Boolean checkStatus = false;
 		User userDB = userSer.findByUsername(user.getUsername());
-		if(userDB.getPassword().equals(userSer.passwordEncrypt(user.getPassword()))) {
-			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		if(userDB != null) {
+			checkStatus = userSer.checkPassword(user.getPassword(), userDB.getPassword());
 		}
-		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+		 
+		return new ResponseEntity<Boolean>(checkStatus, HttpStatus.OK);
+	
 		
 	}
 }

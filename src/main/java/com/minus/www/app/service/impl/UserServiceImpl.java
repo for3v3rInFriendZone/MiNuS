@@ -65,4 +65,11 @@ public class UserServiceImpl implements UserService {
 		return userRepo.findByUsername(username);
 	}
 
+	@Override
+	public Boolean checkPassword(String rawPassword, String encodedPassword) {
+		// TODO Auto-generated method stub
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		return passwordEncoder.matches(rawPassword, encodedPassword);
+	}
+
 }

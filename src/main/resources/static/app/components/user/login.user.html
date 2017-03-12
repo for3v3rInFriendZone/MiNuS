@@ -2,20 +2,23 @@
 	<header class="header" id="header"><!--header-start-->
 		<div class="container">
 			<form class="state-form form-horizontal" name="lgc.form" ng-submit="lgc.submitLoginForm()" novalidate>
-				<div class="login-box animated fadeInUp">
-					<div class="box-header">
-						<h2>Log In</h2>
+				<div ng-class="{'has-error': lgc.checkLogin}" class="form-group">
+					<div class="login-box animated fadeInUp">
+						<div class="box-header">
+							<h2 class="loginHeader">Sign In</h2>
+						</div>
+						<label for="username">Username</label>
+						<br/>
+						<input class="errorOn" type="text" id="username" size="30" ng-model="lgc.user.username" required>
+						<br/>
+						<label for="password">Password</label>
+						<br/>
+						<input class="errorOn" type="password" id="password" size="30" ng-model="lgc.user.password" required>
+						<br/>
+						<p ng-if="lgc.checkLogin" style="color: red;"> Username or password are wrong. </p> <br/>
+						<button type="submit">Sign In</button>
+						<br/>
 					</div>
-					<label for="username">Username</label>
-					<br/>
-					<input type="text" id="username" size="30" ng-model="lgc.user.username" required>
-					<br/>
-					<label for="password">Password</label>
-					<br/>
-					<input type="password" id="password" size="30" ng-model="lgc.user.password" required>
-					<br/>
-					<button type="submit">Sign In</button>
-					<br/>
 				</div>
 			</form>
 		</div>

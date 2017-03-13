@@ -5,11 +5,12 @@
 		.module('minus.core')
 		.controller('LoginController', LoginController);
 
-	LoginController.$inject = ['$state', 'localStorageService', 'users', 'User'];
-	function LoginController($state, localStorageService, users, User) {  
+	LoginController.$inject = ['$scope', '$state', 'localStorageService', 'users', 'User'];
+	function LoginController($scope, $state, localStorageService, users, User) {  
 		var lgc = this;
 		
 		lgc.checkLogin = false;
+		lgc.usernameExists = false;
 		lgc.users = users;
 		lgc.submitLoginForm = submitLoginForm;
 		lgc.submitSignUpForm = submitSignUpForm;
@@ -35,8 +36,17 @@
 				lgc.checkLogin = true;
 				return;
 			}
+	
+			User.checkUsernameUniqueness(lgc.user).then(function(data) {
+				if(data == true) {
+					lgc.usernameExists = true;
+					return;
+				} else {
+					User.save(lgc.user, "main.confirm");
+				}
+			});
 			
-			User.save(lgc.user, "main.home");
+			
 		}
 		
 	}

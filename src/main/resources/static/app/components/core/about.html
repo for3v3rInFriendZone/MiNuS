@@ -5,7 +5,7 @@
 		<div class="container">
 				<div class="about-box animated fadeInUp">
 					<section class="main-section team" id="team">
-						<h1> <span style="color:black;">MiNu<i class="fa fa-usd" aria-hidden="true"></i></span> </h1>
+						<h1 style="color:black;"> MiNu<i class="fa fa-usd" aria-hidden="true"></i> </h1>
 						<hr class="style-two"/> <br/><br/>
 						<h2> 1. Introduction</h2>
 						<p> Hi there. How are you?</p> 
@@ -52,7 +52,8 @@
 					</section>
 					<section class="main-section contact" id="contact">
 				        <div class="row">
-				        	<h2>3. Let's talk business</h2> <br/><br/>
+				        	<h2>3. Let's talk business</h2>
+				        	<p>Feel free to send us your thoughts. We will read and answer every single one of them. We promise.</p> <br/> <br/> <br/>
 				        	<div class="col-lg-6 col-sm-7 wow fadeInLeft">
 				                <div class="contact-info-box email clearfix">
 				                	<h3><i class="fa-pencil"></i>email:</h3>
@@ -64,9 +65,9 @@
 				            </div>
 				        	<div class="col-lg-5 col-sm-3 wow fadeInUp delay-05s">
 				            	<div class="form">
-				                	<input class="input-text" type="text" value="Your Name *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-				                    <input class="input-text" type="text" value="Your E-mail *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-				                	<textarea class="input-text text-area" cols="0" rows="0" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
+				                	<input class="input-text" type="text" placeholder="Your Name *" ng-model="acr.message.senderName">
+				                    <input class="input-text" type="text" placeholder="Your E-mail *" ng-model="acr.message.senderEmail">
+				                	<textarea class="input-text text-area" cols="0" placeholder="Your Comment *" rows="0" ng-model="acr.message.senderText"></textarea>
 				                    <input class="input-btn" type="submit" value="send message">
 				                </div>
 				            </div>

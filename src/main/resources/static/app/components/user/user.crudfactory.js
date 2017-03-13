@@ -35,6 +35,11 @@
 		userService.login = function(user) {
 			return Restangular.all('user/login').post(user);
 		
+		}
+		
+		userService.checkUsernameUniqueness = function(user) {
+			return Restangular.all('user/checkUsername').post(user);
+		
 		}	
 		
 		return userService;

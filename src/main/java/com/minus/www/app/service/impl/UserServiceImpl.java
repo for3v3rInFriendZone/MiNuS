@@ -3,6 +3,7 @@ package com.minus.www.app.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.minus.www.app.model.User;
+import com.minus.www.app.model.User.Activation;
 import com.minus.www.app.repository.UserRepository;
 import com.minus.www.app.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +19,7 @@ public class UserServiceImpl implements UserService {
 	public User save(User user) {
 		// TODO Auto-generated method stub
 		user.setPassword(passwordEncrypt(user.getPassword()));
+		user.setActivation(Activation.DEACTIVATED);
 
 		return userRepo.save(user);
 	}
@@ -70,6 +72,12 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		return passwordEncoder.matches(rawPassword, encodedPassword);
+	}
+
+	@Override
+	public void sendComment(String senderName, String senderEmail, String senderComment) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

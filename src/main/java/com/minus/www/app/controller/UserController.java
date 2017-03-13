@@ -39,18 +39,28 @@ public class UserController {
 		User user = userSer.findOne(id);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value="/login", method = RequestMethod.POST, consumes = "application/json")
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Boolean> checkUserLogin(@RequestBody User user) {
-		
+
 		Boolean checkStatus = false;
 		User userDB = userSer.findByUsername(user.getUsername());
-		if(userDB != null) {
+		if (userDB != null) {
 			checkStatus = userSer.checkPassword(user.getPassword(), userDB.getPassword());
 		}
-		 
+
 		return new ResponseEntity<Boolean>(checkStatus, HttpStatus.OK);
+	}
 	
-		
+	@RequestMapping(value = "/checkUsername", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<Boolean> checkUsernameUniqueness(@RequestBody User user) {
+
+		Boolean usernameExists = false;
+		User userDB = userSer.findByUsername(user.getUsername());
+		if (userDB != null) {
+			usernameExists = true;
+		}
+
+		return new ResponseEntity<Boolean>(usernameExists, HttpStatus.OK);
 	}
 }

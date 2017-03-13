@@ -22,4 +22,6 @@ public interface UserService {
 	
 	public User findByUsername(String username);
 	
+	public void sendComment(String senderName, String senderEmail, String senderComment);
+	
 }

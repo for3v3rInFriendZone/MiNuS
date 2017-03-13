@@ -8,25 +8,32 @@
 					</div>
 					<label for="firstname">First name</label>
 					<br/>
-					<input class="errorOn" type="text" id="firstname" size="30" ng-model="lgc.user.firstname" required>
+					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="firstname" name="firstname" size="30" ng-model="lgc.user.firstname" required>
+					<p class="text-center" ng-show="lgc.form.firstname.$touched && lgc.form.firstname.$error.required" style="color: red;"> This field is required.</p>
 					<br/>
 					<label for="lastname">Last name</label>
 					<br/>
-					<input class="errorOn" type="text" id="lastname" size="30" ng-model="lgc.user.lastname" required>
+					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="lastname" name="lastname" size="30" ng-model="lgc.user.lastname" required>
+					<p class="text-center" ng-show="lgc.form.lastname.$touched && lgc.form.lastname.$error.required" style="color: red;"> This field is required.</p>
 					<br/>
 					<label for="username">Username</label>
 					<br/>
-					<input class="errorOn" type="text" id="username" size="30" ng-model="lgc.user.username" required>
+					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="username" name="username" size="30" ng-model="lgc.user.username" required>
+					<p ng-if="lgc.usernameExists" style="color: red;"> Sorry, that username already exists. </p> <br/>
+					<p class="text-center" ng-show="lgc.form.username.$touched && lgc.form.username.$error.required" style="color: red;"> This field is required.</p>
 					<br/>
 					<label for="password">Password(6 or more characters)</label>
 					<br/>
-					<input class="errorOn" type="text" id="password" size="30" ng-model="lgc.user.password" required>
+					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="password" name="password" size="30" ng-model="lgc.user.password" ng-pattern="/^\w{6,}$/" required>
+					<p class="text-center" ng-show="lgc.form.password.$error.pattern" style="color: red;"> Password must have more than 6 characters. </p>
+					<p class="text-center" ng-show="lgc.form.password.$touched && lgc.form.password.$error.required" style="color: red;"> This field is required.</p>
 					<br/>
 					<label for="email">E-mail</label>
 					<br/>
-					<input class="errorOn" type="text" id="email" size="30" ng-model="lgc.user.email" required>
+					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="email" name="email" size="30" ng-model="lgc.user.email" required>
+					<p class="text-center" ng-show="lgc.form.email.$touched && lgc.form.email.$error.required" style="color: red;"> This field is required.</p>
 					<br/>
-					<p ng-if="lgc.checkLogin" style="color: red;"> All fields has to be inserted. </p> <br/>
+<!-- 					<p ng-if="lgc.checkLogin && !lgc.form.password.$error.pattern && !lgc.usernameExists" style="color: red;"> All fields has to be inserted. </p> <br/> -->
 					<button type="submit">I want to join now</button>
 					<br/>
 				</div>

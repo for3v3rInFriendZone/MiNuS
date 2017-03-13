@@ -2,16 +2,23 @@ package com.minus.www.app.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "APPUSER")
-
 public class User {
+	
+	public enum Activation {
+	    ACTIVATED,
+	    DEACTIVATED
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +33,11 @@ public class User {
 	private String lastname;
 
 	@NotNull
-	@Column(name = "USERNAME", unique=true)
+	@Column(name = "USERNAME", unique = true)
 	private String username;
 
 	@NotNull
+	@Size(min = 6)
 	@Column(name = "USER_PASSWORD")
 	private String password;
 
@@ -40,15 +48,22 @@ public class User {
 	@Column(name = "TYPE")
 	private String type;
 
+	@NotNull
+	@Column(name = "ACTIVATION")
+	@Enumerated(value = EnumType.STRING)
+	private Activation activation;
+
 	@Column(name = "PROFILE_IMAGE", length = 10485760)
 	private String image;
+	
+	
 
 	public User() {
 
 	}
 
 	public User(String firstname, String lastname, String username, String password, String email, String type,
-			String image) {
+			 String image) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -119,4 +134,11 @@ public class User {
 		this.email = email;
 	}
 
+	public Activation getActivation() {
+		return activation;
+	}
+
+	public void setActivation(Activation activation) {
+		this.activation = activation;
+	}
 }

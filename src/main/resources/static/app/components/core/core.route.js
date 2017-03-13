@@ -35,7 +35,9 @@
 				url: '/aboutUs',
 				views: {
 					'content@': {
-						templateUrl: 'app/components/core/about.html'
+						templateUrl: 'app/components/core/about.html',
+						controller: "AboutController",
+						controllerAs: "acr"
 					}
 				}
 			})
@@ -60,6 +62,19 @@
 							users: getUsers
 						},
 						templateUrl: 'app/components/user/user.signup.html',
+						controller: "LoginController",
+						controllerAs: "lgc"
+					}
+				}
+			})
+			.state('main.confirm', {
+				url: '/confirm',
+				views: {
+					'content@': {
+						resolve: {
+							users: getUsers
+						},
+						templateUrl: 'app/components/user/user.confirm.html',
 						controller: "LoginController",
 						controllerAs: "lgc"
 					}

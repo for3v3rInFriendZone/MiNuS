@@ -3,7 +3,6 @@ package com.minus.www.app.controller;
 import java.util.List;
 
 import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,7 +71,7 @@ public class UserController {
 	public ResponseEntity<User> sendMail(@RequestBody User user) throws MessagingException {
 		
 		String msg1 = "Hi there, <i>" + user.getFirstname() + "</i><br/> " + "You are almost finished with signing up. <br/> Just click on this <a href='http://localhost:8080/#!/registrationConfirmation'>link</a> and you will confirm your registration. <br/>";
-		String msg2 = "All the best and we wish you a great day. <br/> <hr/> Your MiNuS team.";
+		String msg2 = "All the best and we wish you a great day. <br/> <hr/> Your <span style='color:lightblue;'>M</span>i<span style='color: #cccc00;'>N</span>u<span style='color: green;'>S</span> team.";
 
 		userSer.sendMail("acquirersep@gmail.com", user.getEmail(), "MiNuS sign up confirmation", msg1+msg2);
 		

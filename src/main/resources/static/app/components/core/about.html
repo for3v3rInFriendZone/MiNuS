@@ -16,7 +16,7 @@
 						<p>Our service is to show you everything you have bought every day, every month and year.</p>
 						<p>We offer a simple interface you will master in minutes and we are sure that our job here will make your life a bit easier.</p>
 						<p>If not, we are really looking forward to hear your complaints and suggestions. </p>
-						<p>In above section, you will find a way to send us your comments. Feel free to contact us at any time.</p>
+						<p>In below section, you will find a way to send us your comments. Feel free to contact us at any time.</p>
 					</section>
 					<section class="main-section team" id="team">
 						<div class="container">
@@ -64,12 +64,14 @@
 				                </ul>
 				            </div>
 				        	<div class="col-lg-5 col-sm-3 wow fadeInUp delay-05s">
-				            	<div class="form">
-				                	<input class="input-text" type="text" placeholder="Your Name *" ng-model="acr.message.senderName">
-				                    <input class="input-text" type="text" placeholder="Your E-mail *" ng-model="acr.message.senderEmail">
-				                	<textarea class="input-text text-area" cols="0" placeholder="Your Comment *" rows="0" ng-model="acr.message.senderText"></textarea>
-				                    <input class="input-btn" type="submit" value="send message">
-				                </div>
+				            	<form class="state-form form-horizontal" name="acr.form" ng-submit="acr.sendComment()" novalidate>
+				                	<input class="input-text" type="text" placeholder="Your Name *" ng-model="acr.message.senderName" required>
+				                    <input class="input-text" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="email" id="email" name="email" placeholder="Your E-mail *" ng-model="acr.message.senderEmail" required>
+				                    <p class="text-center" ng-show="acr.form.email.$error.email" style="color: red;"> Your e-mail is not valid.</p>
+				                	<textarea class="input-text text-area" cols="0" placeholder="Your Comment *" rows="0" ng-model="acr.message.senderComment" required></textarea>
+				                	<p ng-if="acr.checkComment" style="color: red;"> Please enter all fields. </p> <br/>
+				                    <input class="input-btn" type="submit" value="Send message">
+				                </form>
 				            </div>
 				        </div>
 					</section>

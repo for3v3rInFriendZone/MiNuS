@@ -10,14 +10,14 @@
 
 		var commentService = {};
 		
-		commentService.save = function(user, path) {
-			Restangular.all('user').post(user).then(function(data) {
-				$state.go(path);
+		commentService.save = function(user) {
+			Restangular.all("comment").post(user).then(function(data) {
+				alert('Your message has been sent.');
 			});
 		}
 		
 		commentService.findAll = function() {
-			return Restangular.all("user").getList();
+			return Restangular.all("comment").getList();
 		}
 		
 		commentService.findOne = function() {

@@ -30,8 +30,9 @@
 					<br/>
 					<label for="email">E-mail</label>
 					<br/>
-					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="email" name="email" size="30" ng-model="lgc.user.email" required>
+					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="email" id="email" name="email" size="30" ng-model="lgc.user.email" required>
 					<p class="text-center" ng-show="lgc.form.email.$touched && lgc.form.email.$error.required" style="color: red;"> This field is required.</p>
+					<p class="text-center" ng-show="lgc.form.email.$error.email" style="color: red;"> Your e-mail is not valid.</p>
 					<br/>
 <!-- 					<p ng-if="lgc.checkLogin && !lgc.form.password.$error.pattern && !lgc.usernameExists" style="color: red;"> All fields has to be inserted. </p> <br/> -->
 					<button type="submit">I want to join now</button>

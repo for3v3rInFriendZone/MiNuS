@@ -40,6 +40,11 @@
 		userService.checkUsernameUniqueness = function(user) {
 			return Restangular.all('user/checkUsername').post(user);
 		
+		}
+		
+		userService.sendMail = function(user) {
+			return Restangular.all('user/mail').post(user);
+		
 		}	
 		
 		return userService;

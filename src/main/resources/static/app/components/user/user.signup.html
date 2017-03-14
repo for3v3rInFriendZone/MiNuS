@@ -19,7 +19,7 @@
 					<label for="username">Username</label>
 					<br/>
 					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="username" name="username" size="30" ng-model="lgc.user.username" required>
-					<p ng-if="lgc.usernameExists" style="color: red;"> Sorry, that username already exists. </p> <br/>
+					<p ng-if="lgc.usernameExists" style="color: red;"> Sorry, that username already exists. </p>
 					<p class="text-center" ng-show="lgc.form.username.$touched && lgc.form.username.$error.required" style="color: red;"> This field is required.</p>
 					<br/>
 					<label for="password">Password(6 or more characters)</label>

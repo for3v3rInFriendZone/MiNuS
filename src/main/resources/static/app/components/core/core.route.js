@@ -40,50 +40,6 @@
 						controllerAs: "acr"
 					}
 				}
-			})
-			.state('main.login', {
-				url: '/login',
-				views: {
-					'content@': {
-						resolve: {
-							users: getUsers
-						},
-						templateUrl: 'app/components/user/login.user.html',
-						controller: "LoginController",
-						controllerAs: "lgc"
-					}
-				}
-			})
-			.state('main.signup', {
-				url: '/signUp',
-				views: {
-					'content@': {
-						resolve: {
-							users: getUsers
-						},
-						templateUrl: 'app/components/user/user.signup.html',
-						controller: "LoginController",
-						controllerAs: "lgc"
-					}
-				}
-			})
-			.state('main.confirm', {
-				url: '/confirm',
-				views: {
-					'content@': {
-						resolve: {
-							users: getUsers
-						},
-						templateUrl: 'app/components/user/user.confirm.html',
-						controller: "LoginController",
-						controllerAs: "lgc"
-					}
-				}
 			});
-		
-		getUsers.$inject = ['User'];
-		function getUsers(User) {
-			return User.findAll();
-		}
 	}
 })();

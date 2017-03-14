@@ -1,6 +1,9 @@
 package com.minus.www.app.controller;
 
 import java.util.List;
+
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.minus.www.app.model.User;
+import com.minus.www.app.model.User.Activation;
 import com.minus.www.app.service.UserService;
 
 @RestController
@@ -62,5 +66,25 @@ public class UserController {
 		}
 
 		return new ResponseEntity<Boolean>(usernameExists, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/mail", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<User> sendMail(@RequestBody User user) throws MessagingException {
+		
+		String msg1 = "Hi there, <i>" + user.getFirstname() + "</i><br/> " + "You are almost finished with signing up. <br/> Just click on this <a href='http://localhost:8080/#!/registrationConfirmation'>link</a> and you will confirm your registration. <br/>";
+		String msg2 = "All the best and we wish you a great day. <br/> <hr/> Your MiNuS team.";
+
+		userSer.sendMail("acquirersep@gmail.com", user.getEmail(), "MiNuS sign up confirmation", msg1+msg2);
+		
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/mailConfirmation", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<User> sendConfirmationMailForSignUp(@RequestBody User user) {
+
+		user.setActivation(Activation.ACTIVATED);
+		userSer.save(user);
+		
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 }

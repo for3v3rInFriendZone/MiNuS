@@ -45,6 +45,16 @@
 						controllerAs: "cac"
 					}
 				}
+			})
+			.state('main.activateAccount', {
+				url: '/registrationConfirmation/:username',
+				views: {
+					'content@': {
+						templateUrl: 'app/components/user/user.confirmed.html',
+						controller: "AccountConfirmedController",
+						controllerAs: "acc"
+					}
+				}
 			});
 		
 		getUsers.$inject = ['User'];

@@ -31,7 +31,10 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<User> saveUser(@RequestBody User user) {
-
+		
+		user.setPassword(userSer.passwordEncrypt(user.getPassword()));
+		user.setActivation(Activation.DEACTIVATED);
+		
 		User newUser = userSer.save(user);
 		return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
 	}
@@ -48,7 +51,7 @@ public class UserController {
 
 		Boolean checkStatus = false;
 		User userDB = userSer.findByUsername(user.getUsername());
-		if (userDB != null) {
+		if (userDB != null && userDB.getActivation().equals(Activation.ACTIVATED)) {
 			checkStatus = userSer.checkPassword(user.getPassword(), userDB.getPassword());
 		}
 
@@ -70,7 +73,7 @@ public class UserController {
 	@RequestMapping(value = "/mail", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<User> sendMail(@RequestBody User user) throws MessagingException {
 		
-		String msg1 = "Hi there, <i>" + user.getFirstname() + "</i><br/> " + "You are almost finished with signing up. <br/> Just click on this <a href='http://localhost:8080/#!/registrationConfirmation'>link</a> and you will confirm your registration. <br/>";
+		String msg1 = "Hi there, <i>" + user.getFirstname() + "</i><br/> " + "You are almost finished with signing up. <br/> Just click on this <a href='http://localhost:8080/#!/registrationConfirmation/" +user.getUsername()+ "'>link</a> and you will confirm your registration. <br/>";
 		String msg2 = "All the best and we wish you a great day. <br/> <hr/> Your <span style='color:lightblue;'>M</span>i<span style='color: #cccc00;'>N</span>u<span style='color: green;'>S</span> team.";
 
 		userSer.sendMail("acquirersep@gmail.com", user.getEmail(), "MiNuS sign up confirmation", msg1+msg2);
@@ -78,9 +81,14 @@ public class UserController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/mailConfirmation", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<User> sendConfirmationMailForSignUp(@RequestBody User user) {
+	@RequestMapping(value = "/activateAccount/{userName}", method = RequestMethod.GET)
+	public ResponseEntity<User> sendConfirmationMailForSignUp(@PathVariable String userName) {
 
+		User user = userSer.findByUsername(userName);
+		if(user == null) {
+			return new ResponseEntity<User>(user, HttpStatus.OK);
+		} 
+		
 		user.setActivation(Activation.ACTIVATED);
 		userSer.save(user);
 		

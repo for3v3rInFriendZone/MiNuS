@@ -24,12 +24,8 @@
 			
 		}
 		
-		userService.delete = function() {
-					
-		}
-		
-		userService.deleteAll = function() {
-			
+		userService.activateAccount = function(username) {
+			return Restangular.one('user/activateAccount', username).get();		
 		}
 		
 		userService.login = function(user) {

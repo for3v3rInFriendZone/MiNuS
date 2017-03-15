@@ -28,8 +28,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User save(User user) {
 		// TODO Auto-generated method stub
-		user.setPassword(passwordEncrypt(user.getPassword()));
-		user.setActivation(Activation.DEACTIVATED);
 
 		return userRepo.save(user);
 	}

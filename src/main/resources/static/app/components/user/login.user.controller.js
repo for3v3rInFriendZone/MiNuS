@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('minus.core')
+		.module('minus.user')
 		.controller('LoginController', LoginController);
 
 	LoginController.$inject = ['$state', 'localStorageService', 'users', 'User'];

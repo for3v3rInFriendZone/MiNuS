@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('minus.core')
+		.module('minus.user')
 		.controller('ConfirmAccountController', ConfirmAccountController);
 
 	ConfirmAccountController.$inject = ['$state', 'localStorageService', 'User'];

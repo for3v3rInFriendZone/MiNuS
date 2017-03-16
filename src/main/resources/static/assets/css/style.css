@@ -228,7 +228,6 @@ color: #fff;
 
 .main-section{
 	padding:90px 0 110px;
-	border-bottom: 1px solid #dddddd;
 }
 
 
@@ -499,7 +498,7 @@ border: 2px solid #fff;
 }
 .main-section.team{
 	padding:85px 0;
-	background:#fafafa;
+	
 }
 .main-section.team h6{
 	margin-bottom:40px;
@@ -872,7 +871,6 @@ hr.style-two {
 	margin: 0 auto;
 	position: relative;
 	top: -120px;
-	padding-bottom: 50px;
 	border-radius: 5px;
 	box-shadow: 0 5px 50px rgba(0,0,0,0.4);
 	text-align: center;

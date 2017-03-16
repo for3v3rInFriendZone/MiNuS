@@ -24,7 +24,7 @@
 			User.login(lgc.user).then(function(data) {
 				if(data == true) {
 					localStorageService.cookie.set('user', lgc.user, 1, false);
-					$state.go("main.home");
+					$state.go("main.menu");
 				} else {
 					lgc.checkLogin = true;
 					return;

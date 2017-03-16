@@ -40,6 +40,14 @@
 						controllerAs: "acr"
 					}
 				}
+			})
+			.state('main.menu', {
+				url: '/menu',
+				views: {
+					'content@': {
+						templateUrl: 'app/components/core/core.mainPage.html'
+					}
+				}
 			});
 	}
 })();

@@ -13,7 +13,7 @@
 			.state('main', {
 				abstract: true,
 				views: {
-					'header': {
+					'header@': {
 						templateUrl: 'app/components/core/header.core.html',
 						controller: "NavbarController",
 						controllerAs: "nbc"
@@ -38,14 +38,6 @@
 						templateUrl: 'app/components/core/about.html',
 						controller: "AboutController",
 						controllerAs: "acr"
-					}
-				}
-			})
-			.state('main.menu', {
-				url: '/menu',
-				views: {
-					'content@': {
-						templateUrl: 'app/components/core/core.mainPage.html'
 					}
 				}
 			});

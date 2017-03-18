@@ -42,7 +42,7 @@
 
 img{ max-width:100%;}
 
-a, a:hover, a:active{ outline:0px !important}
+a, a:hover, a:active{ outline:0px !important; cursor: pointer}
 
 p a:hover {
 	 color: #fff;
@@ -209,6 +209,7 @@ color: #fff;
 	text-decoration: none;
 	line-height:20px;
 	margin:17px 32px;
+	cursor: pointer;
 	transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
 	-webkit-transition:all 0.3s ease-in-out;
@@ -878,4 +879,8 @@ hr.style-two {
 
 .about-box p{
 	color: #2c2c2c;
+}
+
+table, th, td {
+	text-align: center;
 }

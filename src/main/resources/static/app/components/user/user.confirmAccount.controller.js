@@ -12,7 +12,7 @@
 		sendConfirmationMail();
 		
 		function sendConfirmationMail() {
-			User.sendMail(localStorageService.cookie.get('user'));
+			User.sendMail(localStorageService.cookie.get('userCheck'));
 			return;
 		}
 		

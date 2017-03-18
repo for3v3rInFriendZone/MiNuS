@@ -23,13 +23,16 @@
 			
 			User.login(lgc.user).then(function(data) {
 				if(data == true) {
-					localStorageService.cookie.set('user', lgc.user, 1, false);
-					$state.go("main.menu");
+					User.findOne(lgc.user).then(function(result) {
+						localStorageService.cookie.set('user', result, 1, false);
+						localStorageService.cookie.remove('userCheck');
+						$state.go("main.menu");
+					});
 				} else {
 					lgc.checkLogin = true;
 					return;
 				}
-			})
+			});
 		}
 		
 		function submitSignUpForm() {
@@ -43,7 +46,7 @@
 					lgc.usernameExists = true;
 					return;
 				} else {
-					localStorageService.cookie.set('user', lgc.user, 1, false);
+					localStorageService.cookie.set('userCheck', lgc.user, 1, false);
 					User.save(lgc.user, "main.confirm");
 				}
 			});

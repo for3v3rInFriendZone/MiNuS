@@ -20,8 +20,8 @@
 			return Restangular.all("user").getList();
 		}
 		
-		userService.findOne = function() {
-			
+		userService.findOne = function(user) {
+			return Restangular.one('user', user.username).get();
 		}
 		
 		userService.activateAccount = function(username) {

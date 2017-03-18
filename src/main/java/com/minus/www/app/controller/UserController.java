@@ -39,10 +39,10 @@ public class UserController {
 		return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<User> getUser(@PathVariable Long id) {
+	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
+	public ResponseEntity<User> getUser(@PathVariable String username) {
 
-		User user = userSer.findOne(id);
+		User user = userSer.findByUsername(username);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 

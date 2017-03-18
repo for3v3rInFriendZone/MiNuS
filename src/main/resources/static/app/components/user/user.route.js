@@ -55,6 +55,19 @@
 						controllerAs: "acc"
 					}
 				}
+			})
+			.state('main.menu', {
+				url: '/menu',
+				views: {
+					'header@': {
+						templateUrl: 'app/components/user/user.header.html',
+						controller: "UserMenuController",
+						controllerAs: "umc"
+					},
+					'content@': {
+						templateUrl: 'app/components/core/core.mainPage.html'
+					}
+				}
 			});
 		
 		getUsers.$inject = ['User'];

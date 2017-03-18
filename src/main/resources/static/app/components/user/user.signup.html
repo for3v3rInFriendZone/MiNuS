@@ -8,7 +8,7 @@
 					</div>
 					<label for="firstname">First name</label>
 					<br/>
-					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="firstname" name="firstname" size="30" ng-model="lgc.user.firstname" required>
+					<input class="errorOn" ng-model-options="{updateOn: 'default blur', debounce: { 'default': 1500, 'blur': 0}}" type="text" id="firstname" name="firstname" size="30" ng-model="lgc.user.firstname" maxlength="25" required>
 					<p class="text-center" ng-show="lgc.form.firstname.$touched && lgc.form.firstname.$error.required" style="color: red;"> This field is required.</p>
 					<br/>
 					<label for="lastname">Last name</label>

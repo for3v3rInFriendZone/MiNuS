@@ -15,7 +15,7 @@
 			return;
 		}
 		
-		acc.user = localStorageService.cookie.get('user');
+		acc.user = localStorageService.cookie.get('userCheck');
 		
 		activateUserAccount();
 		
